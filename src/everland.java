@@ -35,7 +35,7 @@ public class everland {
 		Scanner scan= new Scanner(System.in);
 		int price_sum=0;
 		int[] arr;
-		int[][] arr2= new int[5][4];
+		int[][] arr2= new int[10][5];
 		int k=0;
 		int register_number;
 		int count;
@@ -43,7 +43,7 @@ public class everland {
 		while(true)
 		{
 		
-		arr = new int[4];
+		arr = new int[5];
 		int i=0;
 		System.out.println("이용날짜를 입력하세요(6자리) : ");
 		int date = scan.nextInt();
@@ -60,7 +60,7 @@ public class everland {
 		System.out.println("-------------------");
 		
 		System.out.println("우대사항을 선택하세요.");
-		System.out.println("1. 없음 2. 장애인 3. 국가유공자 4.다자녀 5.임산부"); //36미만 무료
+		System.out.println("1. 없음 2. 장애인 3. 국가유공자 4.다자녀 5.임산부"); 
 		System.out.println("-------------------");
 
 		int privilege = scan.nextInt();
@@ -216,13 +216,15 @@ public class everland {
 		i++;
 		arr[i] = count;
 		i++;
+		arr[i] = price;
+		i++;
 		arr[i] = privilege;
 		
 		System.out.println("가격은 "+ price+"원 입니다.");
 		System.out.println("감사합니다.");
 		price_sum+=price;
 		
-		for(int j=0;j<4;j++)
+		for(int j=0;j<5;j++)
 		{
 			arr2[k][j] = arr[j];
 			
@@ -258,20 +260,22 @@ public class everland {
 				System.out.print ("X "+ arr2[l][2]);  
 				
 				
+				System.out.print("    "+arr2[l][3]+" 원  ");
 				
-				if(arr2[l][3] == 2)
+				
+				if(arr2[l][4] == 2)
 				{
 					System.out.print("      *장애인 우대적용");
 				}
-				else if(arr2[l][3] ==3)
+				else if(arr2[l][4] ==3)
 				{
 					System.out.print("      *국가유공자 우대적용");
 				}
-				else if(arr2[l][3] ==4)
+				else if(arr2[l][4] ==4)
 				{
 					System.out.print("      *다자녀 우대적용");
 				}
-				else if(arr2[l][3] ==5)
+				else if(arr2[l][4] ==5)
 				{
 					System.out.print("      *임산부 우대적용");
 				}
