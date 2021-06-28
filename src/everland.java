@@ -35,23 +35,23 @@ public class everland {
 		Scanner scan= new Scanner(System.in);
 		int price_sum=0;
 		int[] arr;
-		int[][] arr2= new int[5][3];
+		int[][] arr2= new int[5][4];
 		int k=0;
-		int register_number=0;
-		int count =0;
+		int register_number;
+		int count;
 		
 		while(true)
 		{
 		
-		arr = new int[3];
+		arr = new int[4];
 		int i=0;
-		System.out.println("이용날짜를 입력하세요 : ");
+		System.out.println("이용날짜를 입력하세요(6자리) : ");
 		int date = scan.nextInt();
 		
 		
 		System.out.println("-------------------");
 		
-		System.out.println("생년월일 앞자리를 입력하세요 : ");
+		System.out.println("생년월일 앞자리를 입력하세요(8자리) : ");
 		register_number = scan.nextInt();
 		System.out.println("-------------------");
 		
@@ -169,7 +169,7 @@ public class everland {
  		// 28000; //장애 청소년소인경로
 		if(privilege==2)
 		{
-			if(register_number >=20030101 || register_number <= 19650101 )
+			if(register_number >=20030101 || register_number <= 19560101 )
 			{
 				price = handicapped_kiz;
 			}
@@ -182,7 +182,7 @@ public class everland {
 		
 		else if(privilege==3)
 		{
-			if(register_number >=20030101 || register_number <= 19650101 )
+			if(register_number >=20030101 || register_number <= 19560101 )
 			{
 				price = honor_kiz;
 			}
@@ -195,7 +195,7 @@ public class everland {
  		// 38000 //소인 경로
 		else if(privilege==4)
 		{
-			if(register_number >=20080101 || register_number <= 19650101 )
+			if(register_number >=20080101 || register_number <= 19560101 )
 			{
 				price = multi_children;
 			}
@@ -212,6 +212,8 @@ public class everland {
 		
 		arr[i] = ticket;
 		i++;
+		arr[i] = register_number;
+		i++;
 		arr[i] = count;
 		i++;
 		arr[i] = privilege;
@@ -220,7 +222,7 @@ public class everland {
 		System.out.println("감사합니다.");
 		price_sum+=price;
 		
-		for(int j=0;j<3;j++)
+		for(int j=0;j<4;j++)
 		{
 			arr2[k][j] = arr[j];
 			
@@ -245,7 +247,7 @@ public class everland {
 					System.out.print(" C티켓 ");
 				
 				
-				if(register_number >=20030101 || register_number <= 19650101)
+				if(arr2[l][1] >=20030101 || arr2[l][1] <= 19560101)
 				{
 					System.out.print("소인/경로 ");
 				
@@ -253,23 +255,23 @@ public class everland {
 				else
 					System.out.print("어른/청소년 ");
 				
-				System.out.print ("X "+ arr2[l][1]);  
+				System.out.print ("X "+ arr2[l][2]);  
 				
 				
 				
-				if(arr2[l][2] == 2)
+				if(arr2[l][3] == 2)
 				{
 					System.out.print("      *장애인 우대적용");
 				}
-				else if(arr2[l][2] ==3)
+				else if(arr2[l][3] ==3)
 				{
 					System.out.print("      *국가유공자 우대적용");
 				}
-				else if(arr2[l][2] ==4)
+				else if(arr2[l][3] ==4)
 				{
 					System.out.print("      *다자녀 우대적용");
 				}
-				else if(arr2[l][2] ==5)
+				else if(arr2[l][3] ==5)
 				{
 					System.out.print("      *임산부 우대적용");
 				}
@@ -284,6 +286,7 @@ public class everland {
 		}
 		
 		System.out.println("총 " + price_sum + "원");
+		System.out.println("================================");
 
 		
 	}
