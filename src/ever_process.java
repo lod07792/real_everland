@@ -226,13 +226,13 @@ public class ever_process {
 	{
 	 	ticket_Type(register_number);
 	 	privilege_Type(privilege);
-	 	
+	 	price(count);
 	 	
 	 	System.out.println(data.ticket+" "+count+" "+privilege);
 		data.arr.ticket_arr.add(data.ticket);
 		data.arr.number_arr.add(register_number);
 		data.arr.count_arr.add(count);
-		data.arr.price_arr.add(data.price*count);
+		data.arr.price_arr.add(data.price);
 		data.arr.previlege_arr.add(data.privilege);
 	}
  
