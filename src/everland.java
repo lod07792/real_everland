@@ -1,6 +1,8 @@
 package project1;
 
+import java.util.ArrayList;
 import java.util.Scanner;
+
 
 public class everland {
 	public static void main(String[] args)
@@ -34,17 +36,25 @@ public class everland {
  		
 		Scanner scan= new Scanner(System.in);
 		int price_sum=0;
-		int[] arr;
-		int[][] arr2= new int[10][5];
-		int k=0;
+
+		
+		
+		ArrayList<Integer> ticket_arr = new ArrayList<Integer>();
+		ArrayList<Integer> number_arr = new ArrayList<Integer>();
+		ArrayList<Integer> count_arr = new ArrayList<Integer>();
+		ArrayList<Integer> price_arr = new ArrayList<Integer>();
+		ArrayList<Integer> previlege_arr = new ArrayList<Integer>();
+		
+ 		
+		
+	
 		int register_number;
 		int count;
 		
 		while(true)
 		{
 		
-		arr = new int[5];
-		int i=0;
+	
 		System.out.println("이용날짜를 입력하세요(6자리) : ");
 		int date = scan.nextInt();
 		
@@ -210,26 +220,18 @@ public class everland {
 		
 		price*=count; //인원
 		
-		arr[i] = ticket;
-		i++;
-		arr[i] = register_number;
-		i++;
-		arr[i] = count;
-		i++;
-		arr[i] = price;
-		i++;
-		arr[i] = privilege;
+		ticket_arr.add(ticket);
+		number_arr.add(register_number);
+		count_arr.add(count);
+		price_arr.add(price);
+		previlege_arr.add(privilege);
+	
 		
 		System.out.println("가격은 "+ price+"원 입니다.");
 		System.out.println("감사합니다.");
 		price_sum+=price;
 		
-		for(int j=0;j<5;j++)
-		{
-			arr2[k][j] = arr[j];
-			
-		}
-		k++;
+	
 		
 		System.out.println("계속하시겠습니까?? 1.네 2.아니오");
 		if(scan.nextInt()==2)
@@ -238,18 +240,18 @@ public class everland {
 		}
 		
 		System.out.println("==============에버랜드==============");
-		for(int l=0;l<k;l++)
+		for(int l=0;l<ticket_arr.size();l++)
 		{
 							
-				if(arr2[l][0]==1)
+				if(/*arr2[l][0]==1*/ticket_arr.get(l)==1)
 					System.out.print(" A티켓 ");
-				else if(arr2[l][0]==2)
+				else if(ticket_arr.get(l)==2)
 					System.out.print(" B티켓 ");
-				else if(arr2[l][0]==3)
+				else if(ticket_arr.get(l)==3)
 					System.out.print(" C티켓 ");
 				
 				
-				if(arr2[l][1] >=20030101 || arr2[l][1] <= 19560101)
+				if(number_arr.get(l) >=20030101 || number_arr.get(l) <= 19560101)
 				{
 					System.out.print("소인/경로 ");
 				
@@ -257,25 +259,25 @@ public class everland {
 				else
 					System.out.print("어른/청소년 ");
 				
-				System.out.print ("X "+ arr2[l][2]);  
+				System.out.print ("X "+ count_arr.get(l));  
 				
 				
-				System.out.print("    "+arr2[l][3]+" 원  ");
+				System.out.print("    "+price_arr.get(l)+" 원  ");
 				
 				
-				if(arr2[l][4] == 2)
+				if(previlege_arr.get(l) == 2)
 				{
 					System.out.print("      *장애인 우대적용");
 				}
-				else if(arr2[l][4] ==3)
+				else if(previlege_arr.get(l) ==3)
 				{
 					System.out.print("      *국가유공자 우대적용");
 				}
-				else if(arr2[l][4] ==4)
+				else if(previlege_arr.get(l) ==4)
 				{
 					System.out.print("      *다자녀 우대적용");
 				}
-				else if(arr2[l][4] ==5)
+				else if(previlege_arr.get(l) ==5)
 				{
 					System.out.print("      *임산부 우대적용");
 				}
