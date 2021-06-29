@@ -30,6 +30,10 @@ public class everland {
 		
 	static int pregnant_day = 51000;
 	
+	
+	
+	//이용권, 혜택별 분류
+	
 	static int ticket;
 	static int price_sum=0;
 	static int register_number;
@@ -38,12 +42,15 @@ public class everland {
 	static int privilege;
 	static int price;
 	
+	//주요변수
 	
 	static ArrayList<Integer> ticket_arr = new ArrayList<Integer>();
 	static ArrayList<Integer> number_arr = new ArrayList<Integer>();
 	static ArrayList<Integer> count_arr = new ArrayList<Integer>();
 	static ArrayList<Integer> price_arr = new ArrayList<Integer>();
 	static ArrayList<Integer> previlege_arr = new ArrayList<Integer>();
+	
+	//arraylist
 	
 	
 	public static void main_View()
@@ -251,7 +258,7 @@ public class everland {
 		ticket_arr.add(ticket);
 		number_arr.add(register_number);
 		count_arr.add(count);
-		price_arr.add(price);
+		price_arr.add(price*count);
 		previlege_arr.add(privilege);
 	}
 	public static void result()
@@ -311,24 +318,15 @@ public class everland {
 		System.out.println("================================");
 	}
 	
-	
+	//주요함수
 	
 	
 	public static void main(String[] args)
-	{	//경로 65세이상  청소년 만 13~18 소인 36개월 ~12
+	{	
 		
 		main_View();
-		
-		
-		
-		
-		
 		result();
-	
-		
-		
 
-		
 	}
 
 }
