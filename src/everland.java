@@ -5,58 +5,56 @@ import java.util.Scanner;
 
 
 public class everland {
-	public static void main(String[] args)
-	{	//경로 65세이상  청소년 만 13~18 소인 36개월 ~12
-		
-		int day_A= 60000; //대인,청소년
-		int kiz_eldery_day_A = 48000; //소인 경로
+	
+	
+	static int day_A= 60000; //대인,청소년
+	static int kiz_eldery_day_A = 48000; //소인 경로
 
-		int day_B= 56000;
-		int kiz_eldery_day_B = 44000;
-		
-		int day_C = 50000;
-		int kiz_eldery_day_C = 40000;
-		
- 		int handicapped = 36000; //장애대인
- 		int handicapped_kiz = 28000; //장애 청소년소인경로
- 		
-		
- 		int honor = 30000; //대인
- 		int honor_kiz = 24000; //유공자 청소년 소인 경로
- 		
- 		
- 		int multi_children = 48000; //대인 청소년
- 		int multi_children_kiz = 38000; //소인 경로
- 	
- 		
- 		int pregnant_day = 51000;
- 		
- 		
- 		int ticket;
- 		
-		Scanner scan= new Scanner(System.in);
-		int price_sum=0;
-
-		
-		
-		ArrayList<Integer> ticket_arr = new ArrayList<Integer>();
-		ArrayList<Integer> number_arr = new ArrayList<Integer>();
-		ArrayList<Integer> count_arr = new ArrayList<Integer>();
-		ArrayList<Integer> price_arr = new ArrayList<Integer>();
-		ArrayList<Integer> previlege_arr = new ArrayList<Integer>();
-		
- 		
+	static int day_B= 56000;
+	static int kiz_eldery_day_B = 44000;
+	
+	static int day_C = 50000;
+	static int kiz_eldery_day_C = 40000;
+	
+	static int handicapped = 36000; //장애대인
+	static int handicapped_kiz = 28000; //장애 청소년소인경로
 		
 	
-		int register_number;
-		int count;
+	static int honor = 30000; //대인
+	static int honor_kiz = 24000; //유공자 청소년 소인 경로
+	
 		
+	static int multi_children = 48000; //대인 청소년
+	static int multi_children_kiz = 38000; //소인 경로
+	
+		
+	static int pregnant_day = 51000;
+	
+	static int ticket;
+	static int price_sum=0;
+	static int register_number;
+	static int count;
+	static int date;
+	static int privilege;
+	static int price;
+	
+	
+	static ArrayList<Integer> ticket_arr = new ArrayList<Integer>();
+	static ArrayList<Integer> number_arr = new ArrayList<Integer>();
+	static ArrayList<Integer> count_arr = new ArrayList<Integer>();
+	static ArrayList<Integer> price_arr = new ArrayList<Integer>();
+	static ArrayList<Integer> previlege_arr = new ArrayList<Integer>();
+	
+	
+	public static void main_View()
+	{
 		while(true)
 		{
 		
-	
+		Scanner scan = new Scanner(System.in);
+			
 		System.out.println("이용날짜를 입력하세요(6자리) : ");
-		int date = scan.nextInt();
+		date = scan.nextInt();
 		
 		
 		System.out.println("-------------------");
@@ -73,13 +71,31 @@ public class everland {
 		System.out.println("1. 없음 2. 장애인 3. 국가유공자 4.다자녀 5.임산부"); 
 		System.out.println("-------------------");
 
-		int privilege = scan.nextInt();
-		
+		privilege = scan.nextInt();
+		price = 0;
 		
 		System.out.println("-------------------");
-		int price = 0;
 		
-		//나이우대 //경로 65세이상  청소년 만 13~18 소인 36개월 ~12
+		
+		
+		ticket_Type();
+		privilege_Type();
+		add();
+		price();
+	
+		System.out.println("계속하시겠습니까?? 1.네 2.아니오");
+		if(scan.nextInt()==2)
+			break;
+		
+		
+		
+		
+		}
+	}
+	
+	public static void ticket_Type()
+
+	{
 		if(register_number >= 20080101 &&register_number <= 20171231) //소인일경우
 		{
 			if(date == 210904 || date == 210905 || date == 210911 || date ==210912 || date ==210918 ||
@@ -174,9 +190,9 @@ public class everland {
 		
 		
 		}
-		
-		// 36000; //장애대인
- 		// 28000; //장애 청소년소인경로
+	}
+	public static void privilege_Type()
+	{
 		if(privilege==2)
 		{
 			if(register_number >=20030101 || register_number <= 19560101 )
@@ -218,32 +234,34 @@ public class everland {
 			price = pregnant_day;
 		}
 		
-		price*=count; //인원
 		
+		
+	}
+
+	public static void price()
+	{
+		price*=count; //인원
+		System.out.println("가격은 "+ price+"원 입니다.");
+		System.out.println("감사합니다.");
+		price_sum+=price;
+	}
+	public static void add()
+
+	{
 		ticket_arr.add(ticket);
 		number_arr.add(register_number);
 		count_arr.add(count);
 		price_arr.add(price);
 		previlege_arr.add(privilege);
-	
-		
-		System.out.println("가격은 "+ price+"원 입니다.");
-		System.out.println("감사합니다.");
-		price_sum+=price;
-		
-	
-		
-		System.out.println("계속하시겠습니까?? 1.네 2.아니오");
-		if(scan.nextInt()==2)
-			break;
-		
-		}
-		
+	}
+	public static void result()
+	{
 		System.out.println("==============에버랜드==============");
+		
 		for(int l=0;l<ticket_arr.size();l++)
 		{
 							
-				if(/*arr2[l][0]==1*/ticket_arr.get(l)==1)
+				if(ticket_arr.get(l)==1)
 					System.out.print(" A티켓 ");
 				else if(ticket_arr.get(l)==2)
 					System.out.print(" B티켓 ");
@@ -286,13 +304,29 @@ public class everland {
 				
 				System.out.println();
 				
-				
-				
+		
 			
 		}
-		
 		System.out.println("총 " + price_sum + "원");
 		System.out.println("================================");
+	}
+	
+	
+	
+	
+	public static void main(String[] args)
+	{	//경로 65세이상  청소년 만 13~18 소인 36개월 ~12
+		
+		main_View();
+		
+		
+		
+		
+		
+		result();
+	
+		
+		
 
 		
 	}
