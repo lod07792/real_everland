@@ -6,7 +6,7 @@ import java.util.Scanner;
 
 public class everland {
 	
-	
+	//이용권, 혜택별 분류
 	static int day_A= 60000; //대인,청소년
 	static int kiz_eldery_day_A = 48000; //소인 경로
 
@@ -19,21 +19,16 @@ public class everland {
 	static int handicapped = 36000; //장애대인
 	static int handicapped_kiz = 28000; //장애 청소년소인경로
 		
-	
 	static int honor = 30000; //대인
 	static int honor_kiz = 24000; //유공자 청소년 소인 경로
 	
-		
 	static int multi_children = 48000; //대인 청소년
 	static int multi_children_kiz = 38000; //소인 경로
 	
-		
 	static int pregnant_day = 51000;
 	
 	
-	
-	//이용권, 혜택별 분류
-	
+	//주요변수
 	static int ticket;
 	static int price_sum=0;
 	static int register_number;
@@ -42,17 +37,17 @@ public class everland {
 	static int privilege;
 	static int price;
 	
-	//주요변수
 	
+	//arraylist
 	static ArrayList<Integer> ticket_arr = new ArrayList<Integer>();
 	static ArrayList<Integer> number_arr = new ArrayList<Integer>();
 	static ArrayList<Integer> count_arr = new ArrayList<Integer>();
 	static ArrayList<Integer> price_arr = new ArrayList<Integer>();
 	static ArrayList<Integer> previlege_arr = new ArrayList<Integer>();
 	
-	//arraylist
 	
 	
+	//주요함수
 	public static void main_View()
 	{
 		while(true)
@@ -99,7 +94,6 @@ public class everland {
 		
 		}
 	}
-	
 	public static void ticket_Type()
 
 	{
@@ -244,7 +238,6 @@ public class everland {
 		
 		
 	}
-
 	public static void price()
 	{
 		price*=count; //인원
@@ -318,9 +311,9 @@ public class everland {
 		System.out.println("================================");
 	}
 	
-	//주요함수
 	
 	
+	//메인
 	public static void main(String[] args)
 	{	
 		
