@@ -10,9 +10,5 @@ public class everland_arr {
 		 ArrayList<Integer> price_arr = new ArrayList<Integer>();
 		 ArrayList<Integer> previlege_arr = new ArrayList<Integer>();
 		 
-		 
-		 
-		 
-		
 
 }

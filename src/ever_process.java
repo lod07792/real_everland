@@ -1,167 +1,197 @@
 package everland;
 
+import java.util.ArrayList;
+
 public class ever_process {
 
+	
+	public ArrayList<input_data> input = new ArrayList<input_data>();
 	
 	
 	ever_data data = new ever_data();
 	
 	
- public void ticket_Type(int register_number)
+	public void add( int register_number, int count , int privilege,int date)
 
 	{
-	 	data.register_number = register_number;
+		
 	
-		if(data.register_number >= 20080101 &&data.register_number <= 20171231) //소인일경우
+		int price = ticket_Type(register_number, date)[0];
+		int ticket = ticket_Type(register_number ,date)[1];//arr 반환해서 가져와야댐
+		
+		if(privilege!=1)
+			price = privilege_Type(privilege,price,register_number);
+	 	
+	 	price(count,price);
+	 	
+	 	input.add(new input_data(ticket,register_number, count, price*count, privilege));
+	 	
+	 	
+		/*data.arr.ticket_arr.add(data.ticket);
+		data.arr.number_arr.add(register_number);
+		data.arr.count_arr.add(count);
+		data.arr.price_arr.add(data.price*count);
+		data.arr.previlege_arr.add(data.privilege);*/
+	}	
+	
+
+ public int[] ticket_Type(int register_number, int date)
+
+	{
+	 	int arr[] = new int[2];
+	 	
+	
+		if(register_number >= 20080101 &&register_number <= 20171231) //소인일경우
 		{
-			if(data.date == 210904 || data.date == 210905 || data.date == 210911 || data.date ==210912 || data.date ==210918 ||
-					data.date ==210919 ||data.date ==210920 ||data.date ==210921 ||data.date == 210922
-					||data.date ==210925||data.date ==210926||data.date ==211002 || data.date ==211003 ||data.date == 211009||
-					data.date ==211010||data.date ==211016||data.date ==211017||data.date ==211023||data.date ==211024||data.date ==211030
-					||data.date ==211031||data.date ==211106||data.date ==211107)
+			if(date == 210904 || date == 210905 || date == 210911 || date ==210912 || date ==210918 ||
+					date ==210919 ||date ==210920 ||date ==210921 ||date == 210922
+					||date ==210925||date ==210926||date ==211002 || date ==211003 ||date == 211009||
+					date ==211010||date ==211016||date ==211017||date ==211023||date ==211024||date ==211030
+					||date ==211031||date ==211106||date ==211107)
 				
-			{	data.price = data.kiz_eldery_day_A; 
-				data.ticket = 1;
+			{	arr[0] = data.kiz_eldery_day_A; 
+				arr[1] = 1;
 				
 			}
-			else if((data.date >= 210601 && data.date <=210613) || (data.date==210619)||data.date==210620||data.date==210626||data.date==210627
-					||data.date==210703||data.date==210704||data.date==210710||data.date==210711||data.date==210717||data.date==210718||data.date==210724
-					||data.date==210725||(data.date >=210729 && data.date <= 210803)||data.date==210807||data.date==210808||data.date==210814||
-					data.date==210815||data.date==210821||data.date==210822||data.date==210828||data.date==210829||data.date==210903
-					||(data.date>=210906&&data.date<=210910) || (data.date>=210913 && data.date <=210917)||data.date==210923||data.date==210924
-					||(data.date>=210927&&data.date<=211001)||(data.date>=211004 && data.date<=211008)||(data.date>=211011 && data.date <=211015)
-					||(data.date>=211018&&data.date<=211022)||(data.date>=211025 && data.date<=211029)||(data.date>=211101&&data.date<=211101)
-					||(data.date>=211108&&data.date<=211114)||data.date==211120||data.date==211121||data.date==211127||data.date==211128)
-			{	data.price = data.kiz_eldery_day_B; 
-				data.ticket = 2;
+			else if((date >= 210601 && date <=210613) || (date==210619)||date==210620||date==210626||date==210627
+					||date==210703||date==210704||date==210710||date==210711||date==210717||date==210718||date==210724
+					||date==210725||(date >=210729 && date <= 210803)||date==210807||date==210808||date==210814||
+					date==210815||date==210821||date==210822||date==210828||date==210829||date==210903
+					||(date>=210906&&date<=210910) || (date>=210913 && date <=210917)||date==210923||date==210924
+					||(date>=210927&&date<=211001)||(date>=211004 && date<=211008)||(date>=211011 && date <=211015)
+					||(date>=211018&&date<=211022)||(date>=211025 && date<=211029)||(date>=211101&&date<=211101)
+					||(date>=211108&&date<=211114)||date==211120||date==211121||date==211127||date==211128)
+			{	arr[0] = data.kiz_eldery_day_B; 
+				arr[1] = 2;
 			}
 			
 			else
 			{
-				data.price = data.kiz_eldery_day_C;
-				data.ticket = 3;
+				arr[0] = data.kiz_eldery_day_C;
+				arr[1] = 3;
 			}
 	
 			
 		}
-		else if (data.register_number <= 19560101)
+		else if (register_number <= 19560101)
 		{
-			if(data.date == 210904 || data.date == 210905 || data.date == 210911 || data.date ==210912 || data.date ==210918 ||
-					data.date ==210919 ||data.date ==210920 ||data.date ==210921 ||data.date == 210922
-					||data.date ==210925||data.date ==210926||data.date ==211002 || data.date ==211003 ||data.date == 211009||
-					data.date ==211010||data.date ==211016||data.date ==211017||data.date ==211023||data.date ==211024||data.date ==211030
-					||data.date ==211031||data.date ==211106||data.date ==211107)
+			if(date == 210904 || date == 210905 || date == 210911 || date ==210912 || date ==210918 ||
+					date ==210919 ||date ==210920 ||date ==210921 ||date == 210922
+					||date ==210925||date ==210926||date ==211002 || date ==211003 ||date == 211009||
+					date ==211010||date ==211016||date ==211017||date ==211023||date ==211024||date ==211030
+					||date ==211031||date ==211106||date ==211107)
 				
-			{	data.price = data.kiz_eldery_day_A; 
-			data.ticket = 1;
+			{	arr[0] = data.kiz_eldery_day_A; 
+				arr[1]= 1;
 		}
 			
-			else if((data.date >= 210601 && data.date <=210613) || (data.date==210619)||data.date==210620||data.date==210626||data.date==210627
-					||data.date==210703||data.date==210704||data.date==210710||data.date==210711||data.date==210717||data.date==210718||data.date==210724
-					||data.date==210725||(data.date >=210729 && data.date <= 210803)||data.date==210807||data.date==210808||data.date==210814||
-					data.date==210815||data.date==210821||data.date==210822||data.date==210828||data.date==210829||data.date==210903
-					||(data.date>=210906&&data.date<=210910) || (data.date>=210913 && data.date <=210917)||data.date==210923||data.date==210924
-					||(data.date>=210927&&data.date<=211001)||(data.date>=211004 && data.date<=211008)||(data.date>=211011 && data.date <=211015)
-					||(data.date>=211018&&data.date<=211022)||(data.date>=211025 && data.date<=211029)||(data.date>=211101&&data.date<=211101)
-					||(data.date>=211108&&data.date<=211114)||data.date==211120||data.date==211121||data.date==211127||data.date==211128)
-			{	data.price = data.kiz_eldery_day_B; 
-			data.ticket = 2;
+			else if((date >= 210601 && date <=210613) || (date==210619)||date==210620||date==210626||date==210627
+					||date==210703||date==210704||date==210710||date==210711||date==210717||date==210718||date==210724
+					||date==210725||(date >=210729 && date <= 210803)||date==210807||date==210808||date==210814||
+					date==210815||date==210821||date==210822||date==210828||date==210829||date==210903
+					||(date>=210906&&date<=210910) || (date>=210913 && date <=210917)||date==210923||date==210924
+					||(date>=210927&&date<=211001)||(date>=211004 && date<=211008)||(date>=211011 && date <=211015)
+					||(date>=211018&&date<=211022)||(date>=211025 && date<=211029)||(date>=211101&&date<=211101)
+					||(date>=211108&&date<=211114)||date==211120||date==211121||date==211127||date==211128)
+			{	arr[0] = data.kiz_eldery_day_B; 
+				arr[1] = 2;
 		}	
 			
 			else
 			{
-				data.price = data.kiz_eldery_day_C;
-				data.ticket =3;
+				arr[0] = data.kiz_eldery_day_C;
+				arr[1] =3;
 			}
 		}
 		else
 		{
-			if(data.date == 210904 || data.date == 210905 || data.date == 210911 || data.date ==210912 || data.date ==210918 ||
-					data.date ==210919 ||data.date ==210920 ||data.date ==210921 ||data.date == 210922
-					||data.date ==210925||data.date ==210926||data.date ==211002 || data.date ==211003 ||data.date == 211009||
-					data.date ==211010||data.date ==211016||data.date ==211017||data.date ==211023||data.date ==211024||data.date ==211030
-					||data.date ==211031||data.date ==211106||data.date ==211107)
+			if(date == 210904 || date == 210905 || date == 210911 || date ==210912 || date ==210918 ||
+					date ==210919 ||date ==210920 ||date ==210921 ||date == 210922
+					||date ==210925||date ==210926||date ==211002 || date ==211003 ||date == 211009||
+					date ==211010||date ==211016||date ==211017||date ==211023||date ==211024||date ==211030
+					||date ==211031||date ==211106||date ==211107)
 			{	
-			data.price = data.day_A; 
-			data.ticket = 1;
+			arr[0] = data.day_A; 
+			arr[1] = 1;
 			}
-			else if((data.date >= 210601 && data.date <=210613) || (data.date==210619)||data.date==210620||data.date==210626||data.date==210627
-					||data.date==210703||data.date==210704||data.date==210710||data.date==210711||data.date==210717||data.date==210718||data.date==210724
-					||data.date==210725||(data.date >=210729 && data.date <= 210803)||data.date==210807||data.date==210808||data.date==210814||
-					data.date==210815||data.date==210821||data.date==210822||data.date==210828||data.date==210829||data.date==210903
-					||(data.date>=210906&&data.date<=210910) || (data.date>=210913 && data.date <=210917)||data.date==210923||data.date==210924
-					||(data.date>=210927&&data.date<=211001)||(data.date>=211004 && data.date<=211008)||(data.date>=211011 && data.date <=211015)
-					||(data.date>=211018&&data.date<=211022)||(data.date>=211025 && data.date<=211029)||(data.date>=211101&&data.date<=211101)
-					||(data.date>=211108&&data.date<=211114)||data.date==211120||data.date==211121||data.date==211127||data.date==211128)
+			else if((date >= 210601 && date <=210613) || (date==210619)||date==210620||date==210626||date==210627
+					||date==210703||date==210704||date==210710||date==210711||date==210717||date==210718||date==210724
+					||date==210725||(date >=210729 && date <= 210803)||date==210807||date==210808||date==210814||
+					date==210815||date==210821||date==210822||date==210828||date==210829||date==210903
+					||(date>=210906&&date<=210910) || (date>=210913 && date <=210917)||date==210923||date==210924
+					||(date>=210927&&date<=211001)||(date>=211004 && date<=211008)||(date>=211011 && date <=211015)
+					||(date>=211018&&date<=211022)||(date>=211025 && date<=211029)||(date>=211101&&date<=211101)
+					||(date>=211108&&date<=211114)||date==211120||date==211121||date==211127||date==211128)
 			{	
-				data.price = data.day_B; 
-				data.ticket = 2;
+				arr[0] = data.day_B; 
+				arr[1] = 2;
 				}
 			
 			else
 			{	
-				data.price = data.day_C; 
-				data.ticket = 3;
+				arr[0] = data.day_C; 
+				arr[1] = 3;
 				}
 		
 		
 		}
-		//System.out.println(data.ticket+" "+data.price+" ");
+		return arr;
 	}
- public void privilege_Type(int privilege)
+ 
+ public int privilege_Type(int privilege, int price,int register_number)
 	{
 	 
-	 data.privilege = privilege;
-		if(data.privilege==2)
+	 
+		if(privilege==2)
 		{
-			if(data.register_number >=20030101 || data.register_number <= 19560101 )
+			if(register_number >=20030101 || register_number <= 19560101 )
 			{
-				data.price = data.handicapped_kiz;
+				price = data.handicapped_kiz;
 			}
 			else 
-				data.price = data.handicapped; 
+				price = data.handicapped; 
 			
 		}
 		// honor = 30000; //대인
  		// 24000; //유공자 청소년 소인 경로
 		
-		else if(data.privilege==3)
+		else if(privilege==3)
 		{
-			if(data.register_number >=20030101 || data.register_number <= 19560101 )
+			if(register_number >=20030101 || register_number <= 19560101 )
 			{
-				data.price = data.honor_kiz;
+				price = data.honor_kiz;
 			}
 			else 
-				data.price = data.honor; 
+				price = data.honor; 
 			
 		}
 		
 		// 48000 //대인 청소년
  		// 38000 //소인 경로
-		else if(data.privilege==4)
+		else if(privilege==4)
 		{
-			if(data.register_number >=20080101 || data.register_number <= 19560101 )
+			if(register_number >=20080101 || register_number <= 19560101 )
 			{
-				data.price = data.multi_children;
+				price = data.multi_children;
 			}
 			else 
-				data.price = data.multi_children_kiz; 
+				price = data.multi_children_kiz; 
 		}
 		
-		else if(data.privilege==5)
+		else if(privilege==5)
 		{
-			data.price = data.pregnant_day;
+			price = data.pregnant_day;
 		}
 		
-		
+		return price;
 		
 	}	 
- public void price(int count)
+ public void price(int count, int price)
 	{
 	 	
-	 	data.count=count;
-		data.price*=data.count; //인원
-		System.out.println("가격은 "+ data.price+"원 입니다.");
+	 	
+		price*=count; //인원
+		System.out.println("가격은 "+ price +"원 입니다.");
 		System.out.println("감사합니다.");
 		//data.price_sum+=data.price;
 	}	 
@@ -169,18 +199,18 @@ public class ever_process {
 	{
 		System.out.println("==============에버랜드==============");
 		
-		for(int l=0;l<data.arr.ticket_arr.size();l++)
+		for(int l=0;l<input.size();l++)
 		{
 							
-				if(data.arr.ticket_arr.get(l)==1)
+				if(input.get(l).ticket==1)
 					System.out.print(" A티켓 ");
-				else if(data.arr.ticket_arr.get(l)==2)
+				else if(input.get(l).ticket==2)
 					System.out.print(" B티켓 ");
-				else if(data.arr.ticket_arr.get(l)==3)
+				else if(input.get(l).ticket==3)
 					System.out.print(" C티켓 ");
 				
 				
-				if(data.arr.number_arr.get(l) >=20030101 || data.arr.number_arr.get(l) <= 19560101)
+				if(input.get(l).register_number >=20030101 || input.get(l).register_number <= 19560101)
 				{
 					System.out.print("소인/경로 ");
 				
@@ -188,25 +218,25 @@ public class ever_process {
 				else
 					System.out.print("어른/청소년 ");
 				
-				System.out.print ("X "+ data.arr.count_arr.get(l));  
+				System.out.print ("X "+ input.get(l).count);  
 				
 				
-				System.out.print("    "+data.arr.price_arr.get(l)+" 원  ");
+				System.out.print("    "+input.get(l).price+" 원  ");
 				
 				
-				if(data.arr.previlege_arr.get(l) == 2)
+				if(input.get(l).previlege == 2)
 				{
 					System.out.print("      *장애인 우대적용");
 				}
-				else if(data.arr.previlege_arr.get(l) ==3)
+				else if(input.get(l).previlege ==3)
 				{
 					System.out.print("      *국가유공자 우대적용");
 				}
-				else if(data.arr.previlege_arr.get(l) ==4)
+				else if(input.get(l).previlege ==4)
 				{
 					System.out.print("      *다자녀 우대적용");
 				}
-				else if(data.arr.previlege_arr.get(l) ==5)
+				else if(input.get(l).previlege ==5)
 				{
 					System.out.print("      *임산부 우대적용");
 				}
@@ -221,20 +251,7 @@ public class ever_process {
 		//System.out.println("총 " + data.price_sum + "원");
 		System.out.println("================================");
 	}
- public void add( int register_number, int count , int privilege)
-
-	{
-	 	ticket_Type(register_number);
-	 	privilege_Type(privilege);
-	 	price(count);
-	 	
-	 	System.out.println(data.ticket+" "+count+" "+privilege);
-		data.arr.ticket_arr.add(data.ticket);
-		data.arr.number_arr.add(register_number);
-		data.arr.count_arr.add(count);
-		data.arr.price_arr.add(data.price);
-		data.arr.previlege_arr.add(data.privilege);
-	}
+ 
  
 
 }
