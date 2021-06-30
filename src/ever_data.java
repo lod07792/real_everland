@@ -21,18 +21,7 @@ public class ever_data {
 	
 	  int pregnant_day = 51000;
 	
-	
-	/*주요변수
-	 int ticket;
-	 int price_sum=0;
-	 int register_number;
-	 int count;
-	 int date;
-	 int privilege;
-	 int price;*/
-	 
-	// everland_arr arr= new everland_arr();
-	 
+
 	 
 	 
 	 

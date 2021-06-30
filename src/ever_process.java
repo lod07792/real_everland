@@ -27,11 +27,7 @@ public class ever_process {
 	 	input.add(new input_data(ticket,register_number, count, price*count, privilege));
 	 	
 	 	
-		/*data.arr.ticket_arr.add(data.ticket);
-		data.arr.number_arr.add(register_number);
-		data.arr.count_arr.add(count);
-		data.arr.price_arr.add(data.price*count);
-		data.arr.previlege_arr.add(data.privilege);*/
+	
 	}	
 	
 
@@ -193,7 +189,7 @@ public class ever_process {
 		price*=count; //인원
 		System.out.println("가격은 "+ price +"원 입니다.");
 		System.out.println("감사합니다.");
-		//data.price_sum+=data.price;
+		
 	}	 
  public void result()
 	{

@@ -44,12 +44,7 @@ public class everland {
 		
 		System.out.println("-------------------");
 		
-	
-		
-		
-		//process.ticket_Type(register_number,date);
-		//process.privilege_Type(privilege);
-		//process.price(count);
+
 		process.add( register_number, count, privilege,date);
 		
 	
